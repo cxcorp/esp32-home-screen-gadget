@@ -21,6 +21,16 @@ The UI is implemented with LVGL. Their SquareLine Studio software was used to de
 
 
 
+## Developing
+
+1. Copy `include/secrets.h.example` to `include/secrets.h` and fill in the secrets
+2. Uncomment the "Uncomment these if you want to flash over USB" portion of `platformio.ini` and comment out the OTA portion
+3. Flash to your device
+
+Now that the OTA functionality is flashed, use OTA for following updates if you want to:
+4. Copy `upload_config.json.example` to `upload_config.json`
+5. Do reverse of step 2 above where you comment out the OTA upload config
+
 ## Licenses
 
 ### Code

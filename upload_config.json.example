@@ -1,0 +1,5 @@
+{
+  "esp_device_ota_ip": "192.168.1.123",
+  "esp_device_ota_auth": "keyboardcat",
+  "esp_device_ota_port": "3232"
+}

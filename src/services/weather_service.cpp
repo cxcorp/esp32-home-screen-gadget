@@ -50,7 +50,7 @@ namespace Services
         "jjxDah2nGN59PRbxYvnKkKj9\n"
         "-----END CERTIFICATE-----\n";
 
-    static ArduinoJson::StaticJsonDocument<2048> weatherJson;
+    static ArduinoJson::DynamicJsonDocument weatherJson(2048);
 
     static std::string buildWeatherApiUrl()
     {
