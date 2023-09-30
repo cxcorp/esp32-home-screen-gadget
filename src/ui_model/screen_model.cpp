@@ -1,6 +1,7 @@
 #include "ui_model/screen_model.hpp"
 #include <Arduino.h>
 #include <ArduinoJson.h>
+#include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
 #include <sstream>
@@ -9,6 +10,25 @@
 
 namespace UiModel
 {
+    static void reconnectWiFiIfDisconnected()
+    {
+        if (WiFi.status() == WL_CONNECTED)
+        {
+            return;
+        }
+
+        WiFi.reconnect();
+        for (size_t waits = 0; waits < 100; waits++)
+        {
+            if (WiFi.status() == WL_CONNECTED)
+            {
+                break;
+            }
+
+            delay(200);
+        }
+    }
+
     bool ChangeTracker::hasChanged() const
     {
         return this->changed;
@@ -49,6 +69,12 @@ namespace UiModel
         std::vector<Services::WeatherService::WeatherForecast> forecasts;
         if (!Services::WeatherService::getWeatherForecasts(forecasts))
         {
+            reconnectWiFiIfDisconnected();
+        }
+
+        forecasts.clear();
+        if (!Services::WeatherService::getWeatherForecasts(forecasts))
+        {
             return;
         }
 
@@ -72,6 +98,13 @@ namespace UiModel
         if (this->fetchDebouncer.tryElapse())
         {
             std::vector<Services::HslService::StopTime> stopTimes;
+            if (!Services::HslService::getSchedule(stopTimes))
+            {
+                reconnectWiFiIfDisconnected();
+            }
+
+            stopTimes.clear();
+
             if (Services::HslService::getSchedule(stopTimes))
             {
                 this->stopTimes = std::move(stopTimes);
