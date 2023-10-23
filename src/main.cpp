@@ -64,6 +64,7 @@ void setup()
 
     WiFi.mode(WIFI_STA);
     WiFi.begin(WIFI_SSID, WIFI_PASSPHRASE);
+    WiFi.setAutoReconnect(true);
 
     Serial.println("Waiting for WiFi to connect...");
     while ((WiFi.status() != WL_CONNECTED))
