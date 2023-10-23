@@ -215,9 +215,13 @@ static void transitionDimmedToSleeping()
 static void transitionSleepingToActive()
 {
     smartdisplay_tft_wake();
-    // Just update the clock since it's instant then show whatever
-    // data we have even if it's stale.
+    // Update the clock since it's instant
     screenModel.updateClock();
+    // Then show whatever data we have even if it's stale.
+    // If the schedule's data is very old, the presenter will just filter
+    // out the old items.
+    screenModel.getWeather().setChanged(true);
+    screenModel.getSchedule().setChanged(true);
     Presenter::present_screen(screenModel);
     screenModel.resetChanged();
 

@@ -147,14 +147,29 @@ namespace UiModel
         this->schedule.setChanged(false);
     }
 
+    Clock &Screen::getClock()
+    {
+        return this->clock;
+    }
+
     const Clock &Screen::getClock() const
     {
         return this->clock;
     }
 
+    Weather &Screen::getWeather()
+    {
+        return this->weather;
+    }
+
     const Weather &Screen::getWeather() const
     {
         return this->weather;
+    }
+
+    Schedule &Screen::getSchedule()
+    {
+        return this->schedule;
     }
 
     const Schedule &Screen::getSchedule() const

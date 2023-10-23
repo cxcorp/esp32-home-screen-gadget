@@ -63,8 +63,11 @@ namespace UiModel
         bool hasChanged() const;
         void resetChanged();
 
+        Clock &getClock();
         const Clock &getClock() const;
+        Weather &getWeather();
         const Weather &getWeather() const;
+        Schedule &getSchedule();
         const Schedule &getSchedule() const;
 
     private:
