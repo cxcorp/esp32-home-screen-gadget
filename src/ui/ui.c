@@ -8,6 +8,16 @@
 
 ///////////////////// VARIABLES ////////////////////
 
+// SCREEN: ui_init_screen
+void ui_init_screen_screen_init(void);
+lv_obj_t *ui_init_screen;
+lv_obj_t *ui_init_screen_spinner_panel;
+lv_obj_t *ui_init_screen_spinner;
+lv_obj_t *ui_init_screen_label;
+lv_obj_t *ui_init_screen_WiFi_settings_button;
+lv_obj_t *ui_init_screen_WiFi_settings_button_label;
+lv_obj_t *ui_init_screen_WiFi_settings_label;
+
 // SCREEN: ui_main_screen
 void ui_main_screen_screen_init(void);
 lv_obj_t *ui_main_screen;
@@ -58,11 +68,19 @@ lv_obj_t *ui_schedule5_busnumber;
 lv_obj_t *ui_schedule5_destination;
 lv_obj_t *ui_schedule5_time;
 
-// SCREEN: ui_init_screen
-void ui_init_screen_screen_init(void);
-lv_obj_t *ui_init_screen;
-lv_obj_t *ui_init_screen_spinner;
-lv_obj_t *ui_init_screen_label;
+// SCREEN: ui_WiFi_settings_screen
+void ui_WiFi_settings_screen_screen_init(void);
+lv_obj_t *ui_WiFi_settings_screen;
+lv_obj_t *ui_WiFi_settings_title;
+lv_obj_t *ui_WiFi_settings_WiFi_pass_textarea;
+lv_obj_t *ui_WiFi_settings_WiFi_pass_label;
+lv_obj_t *ui_WiFi_settings_OK_button;
+lv_obj_t *ui_WiFi_settings_OK_button_label;
+lv_obj_t *ui_WiFi_settings_cancel_button;
+lv_obj_t *ui_WiFi_settings_cancel_button_label;
+lv_obj_t *ui_WiFi_settings_WiFi_name_label;
+lv_obj_t *ui_WiFi_settings_WiFi_name_textarea;
+lv_obj_t *ui_WiFi_settings_keyboard;
 lv_obj_t *ui____initial_actions0;
 
 ///////////////////// ANIMATIONS ////////////////////
@@ -76,8 +94,9 @@ void ui_init(void)
     lv_disp_t *dispp = lv_disp_get_default();
     lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
-    ui_main_screen_screen_init();
     ui_init_screen_screen_init();
+    ui_main_screen_screen_init();
+    ui_WiFi_settings_screen_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_init_screen);
 }

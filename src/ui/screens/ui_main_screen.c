@@ -13,6 +13,8 @@ void ui_main_screen_screen_init(void)
   ui_main_panel = lv_obj_create(ui_main_screen);
   lv_obj_set_width(ui_main_panel, lv_pct(100));
   lv_obj_set_height(ui_main_panel, lv_pct(100));
+  lv_obj_set_x(ui_main_panel, -1);
+  lv_obj_set_y(ui_main_panel, 0);
   lv_obj_set_align(ui_main_panel, LV_ALIGN_CENTER);
   lv_obj_set_flex_flow(ui_main_panel, LV_FLEX_FLOW_COLUMN);
   lv_obj_set_flex_align(ui_main_panel, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);

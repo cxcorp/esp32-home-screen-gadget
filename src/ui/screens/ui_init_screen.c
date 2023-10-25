@@ -9,10 +9,19 @@ void ui_init_screen_screen_init(void)
 {
   ui_init_screen = lv_obj_create(NULL);
   lv_obj_clear_flag(ui_init_screen, LV_OBJ_FLAG_SCROLLABLE); /// Flags
-  lv_obj_set_flex_flow(ui_init_screen, LV_FLEX_FLOW_COLUMN);
-  lv_obj_set_flex_align(ui_init_screen, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
 
-  ui_init_screen_spinner = lv_spinner_create(ui_init_screen, 1000, 90);
+  ui_init_screen_spinner_panel = lv_obj_create(ui_init_screen);
+  lv_obj_set_width(ui_init_screen_spinner_panel, lv_pct(100));
+  lv_obj_set_height(ui_init_screen_spinner_panel, lv_pct(100));
+  lv_obj_set_align(ui_init_screen_spinner_panel, LV_ALIGN_TOP_MID);
+  lv_obj_set_flex_flow(ui_init_screen_spinner_panel, LV_FLEX_FLOW_COLUMN);
+  lv_obj_set_flex_align(ui_init_screen_spinner_panel, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENTER);
+  lv_obj_clear_flag(ui_init_screen_spinner_panel, LV_OBJ_FLAG_SCROLLABLE); /// Flags
+  lv_obj_set_style_bg_color(ui_init_screen_spinner_panel, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_style_bg_opa(ui_init_screen_spinner_panel, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_style_border_width(ui_init_screen_spinner_panel, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+  ui_init_screen_spinner = lv_spinner_create(ui_init_screen_spinner_panel, 1000, 90);
   lv_obj_set_width(ui_init_screen_spinner, 80);
   lv_obj_set_height(ui_init_screen_spinner, 80);
   lv_obj_set_x(ui_init_screen_spinner, -2);
@@ -23,11 +32,38 @@ void ui_init_screen_screen_init(void)
 
   lv_obj_set_style_arc_width(ui_init_screen_spinner, 5, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
-  ui_init_screen_label = lv_label_create(ui_init_screen);
+  ui_init_screen_label = lv_label_create(ui_init_screen_spinner_panel);
   lv_obj_set_width(ui_init_screen_label, LV_SIZE_CONTENT);  /// 1
   lv_obj_set_height(ui_init_screen_label, LV_SIZE_CONTENT); /// 1
   lv_obj_set_x(ui_init_screen_label, -38);
   lv_obj_set_y(ui_init_screen_label, -109);
   lv_obj_set_align(ui_init_screen_label, LV_ALIGN_CENTER);
-  lv_label_set_text(ui_init_screen_label, "Connecting to WiFi...");
+  lv_label_set_text(ui_init_screen_label, "Yhdistää Wi-Fi-verkkoon...");
+
+  ui_init_screen_WiFi_settings_button = lv_btn_create(ui_init_screen);
+  lv_obj_set_width(ui_init_screen_WiFi_settings_button, 30);
+  lv_obj_set_height(ui_init_screen_WiFi_settings_button, 30);
+  lv_obj_set_x(ui_init_screen_WiFi_settings_button, 99);
+  lv_obj_set_y(ui_init_screen_WiFi_settings_button, -140);
+  lv_obj_set_align(ui_init_screen_WiFi_settings_button, LV_ALIGN_CENTER);
+  lv_obj_add_flag(ui_init_screen_WiFi_settings_button, LV_OBJ_FLAG_SCROLL_ON_FOCUS); /// Flags
+  lv_obj_clear_flag(ui_init_screen_WiFi_settings_button, LV_OBJ_FLAG_SCROLLABLE);    /// Flags
+  lv_obj_set_style_bg_color(ui_init_screen_WiFi_settings_button, lv_color_hex(0xB2B2B2), LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_style_bg_opa(ui_init_screen_WiFi_settings_button, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+  ui_init_screen_WiFi_settings_button_label = lv_label_create(ui_init_screen_WiFi_settings_button);
+  lv_obj_set_width(ui_init_screen_WiFi_settings_button_label, LV_SIZE_CONTENT);  /// 1
+  lv_obj_set_height(ui_init_screen_WiFi_settings_button_label, LV_SIZE_CONTENT); /// 1
+  lv_obj_set_align(ui_init_screen_WiFi_settings_button_label, LV_ALIGN_CENTER);
+  lv_label_set_text(ui_init_screen_WiFi_settings_button_label, "");
+
+  ui_init_screen_WiFi_settings_label = lv_label_create(ui_init_screen);
+  lv_obj_set_width(ui_init_screen_WiFi_settings_label, LV_SIZE_CONTENT);  /// 1
+  lv_obj_set_height(ui_init_screen_WiFi_settings_label, LV_SIZE_CONTENT); /// 1
+  lv_obj_set_x(ui_init_screen_WiFi_settings_label, 60);
+  lv_obj_set_y(ui_init_screen_WiFi_settings_label, -139);
+  lv_obj_set_align(ui_init_screen_WiFi_settings_label, LV_ALIGN_CENTER);
+  lv_label_set_text(ui_init_screen_WiFi_settings_label, "Wi-Fi");
+  lv_obj_set_style_text_color(ui_init_screen_WiFi_settings_label, lv_color_hex(0x808080), LV_PART_MAIN | LV_STATE_DEFAULT);
+  lv_obj_set_style_text_opa(ui_init_screen_WiFi_settings_label, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 }

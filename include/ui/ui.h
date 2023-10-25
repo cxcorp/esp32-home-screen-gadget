@@ -11,11 +11,20 @@ extern "C"
 {
 #endif
 
-#include <lvgl.h>
+#include "lvgl.h"
 
 #include "ui/ui_helpers.h"
 #include "ui/ui_events.h"
 #include "ui/icons.h"
+    // SCREEN: ui_init_screen
+    void ui_init_screen_screen_init(void);
+    extern lv_obj_t *ui_init_screen;
+    extern lv_obj_t *ui_init_screen_spinner_panel;
+    extern lv_obj_t *ui_init_screen_spinner;
+    extern lv_obj_t *ui_init_screen_label;
+    extern lv_obj_t *ui_init_screen_WiFi_settings_button;
+    extern lv_obj_t *ui_init_screen_WiFi_settings_button_label;
+    extern lv_obj_t *ui_init_screen_WiFi_settings_label;
     // SCREEN: ui_main_screen
     void ui_main_screen_screen_init(void);
     extern lv_obj_t *ui_main_screen;
@@ -65,11 +74,19 @@ extern "C"
     extern lv_obj_t *ui_schedule5_busnumber;
     extern lv_obj_t *ui_schedule5_destination;
     extern lv_obj_t *ui_schedule5_time;
-    // SCREEN: ui_init_screen
-    void ui_init_screen_screen_init(void);
-    extern lv_obj_t *ui_init_screen;
-    extern lv_obj_t *ui_init_screen_spinner;
-    extern lv_obj_t *ui_init_screen_label;
+    // SCREEN: ui_WiFi_settings_screen
+    void ui_WiFi_settings_screen_screen_init(void);
+    extern lv_obj_t *ui_WiFi_settings_screen;
+    extern lv_obj_t *ui_WiFi_settings_title;
+    extern lv_obj_t *ui_WiFi_settings_WiFi_pass_textarea;
+    extern lv_obj_t *ui_WiFi_settings_WiFi_pass_label;
+    extern lv_obj_t *ui_WiFi_settings_OK_button;
+    extern lv_obj_t *ui_WiFi_settings_OK_button_label;
+    extern lv_obj_t *ui_WiFi_settings_cancel_button;
+    extern lv_obj_t *ui_WiFi_settings_cancel_button_label;
+    extern lv_obj_t *ui_WiFi_settings_WiFi_name_label;
+    extern lv_obj_t *ui_WiFi_settings_WiFi_name_textarea;
+    extern lv_obj_t *ui_WiFi_settings_keyboard;
     extern lv_obj_t *ui____initial_actions0;
 
     void ui_init(void);
