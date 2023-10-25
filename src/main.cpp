@@ -60,7 +60,7 @@ void setup()
         xLvglTaskStack,
         &xLvglTaskBuffer);
 
-    updateInitScreenLabel("Connecting to WiFi...");
+    updateInitScreenLabel("Yhdistetään Wi-Fi-verkkoon...");
 
     WiFi.mode(WIFI_STA);
     WiFi.begin(WIFI_SSID, WIFI_PASSPHRASE);
@@ -106,11 +106,11 @@ void setup()
             });
     ArduinoOTA.begin();
 
-    updateInitScreenLabel("Synchronizing clock...");
+    updateInitScreenLabel("Päivitetään kelloa...");
     NTP::setup();
     NTP::block_until_synced(yield);
 
-    updateInitScreenLabel("Getting things ready...");
+    updateInitScreenLabel("Valmistellaan...");
     // update data on the main screen, then switch to it
     updateStateAndPresent();
 
