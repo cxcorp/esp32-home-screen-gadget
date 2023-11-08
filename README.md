@@ -31,6 +31,10 @@ Now that the OTA functionality is flashed, use OTA for following updates if you 
 4. Copy `upload_config.json.example` to `upload_config.json`
 5. Do reverse of step 2 above where you comment out the OTA upload config
 
+## Case
+
+https://www.printables.com/model/577921-p1touch-sunton-esp32-2432s028r-case-alien3d-deck-r
+
 ## Licenses
 
 ### Code
