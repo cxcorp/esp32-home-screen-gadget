@@ -2,11 +2,10 @@
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
     sans-serif;
-  line-height: 1.5;
   font-weight: 400;
 
   color: #213547;
-  background-color: #ffffff;
+  background-color: #e5e5e5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,4 +18,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

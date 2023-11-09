@@ -3,36 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Laiteasetukset</title>
   </head>
   <body>
-    <div class="hero">
-      <h1>Asetukset</h1>
-      <h2>ESP32 SMART-DISPLAY</h2>
+    <div class="app">
+      <div class="app-header">
+        <h1>Laiteasetukset</h1>
+      </div>
+
+      <div class="section wshadow">
+        <h2>Yhteys</h2>
+        <div class="setting-item">
+          <label for="wifi-network">WiFi-verkko</label>
+          <input id="wifi-network" type="text" placeholder="Valitse verkko" />
+        </div>
+        <div class="setting-item">
+          <label for="password">Salasana</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Kirjoita salasana"
+          />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Sää</h2>
+        <div class="setting-item">
+          <label for="location">Sijainti</label>
+          <p class="help-text">
+            Sijaintia tarvitaan sääpäivitysten hakemiseen Ilmatieteen Laitoksen
+            sivustolta.
+          </p>
+          <input
+            id="location"
+            type="text"
+            placeholder="Kaupunginosa, Kaupunki"
+          />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>HSL-aikataulu</h2>
+        <div class="setting-item">
+          <label for="modal-open-bus-stops">Pysäkit</label>
+          <p class="help-text">
+            Valitse aikatauluruudulle haettavat HSL:n pysäkit.
+          </p>
+          <button class="modal-open-button" id="modal-open-bus-stops">
+            Valitse pysäkit <span class="button-icon">&#x276F;</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <button class="btn-primary">Tallenna asetukset</button>
+      </div>
     </div>
-    <main>
-      <p class="section-title">LAITE</p>
-      <div class="item">
-        Wi-Fi
-        <span class="value">Valitse <i class="chevron"></i></span>
-      </div>
 
-      <p class="section-title">SÄÄ</p>
-      <div class="item">
-        Sijainti
-        <span class="value">Helsinki <i class="chevron"></i></span>
-      </div>
-
-      <p class="section-title">HSL AIKATAULU</p>
-      <div class="item">
-        Pysäkit
-        <span class="value">2 valittu <i class="chevron"></i></span>
-      </div>
-      <div class="item">
-        Matkaetäisyydet
-        <span class="value"><i class="chevron"></i></span>
-      </div>
-    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
