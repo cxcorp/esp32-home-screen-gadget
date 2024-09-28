@@ -5,7 +5,7 @@ Firmware for a ESP32-2432S032 2.8" TFT (resistive) touchscreen module to provide
   * Synchronized via NTP
 - Weather for the next 15 hours
   * Temperature and weather symbol, courtesy of the Finnish Meteorological Institute
-- Public transport schedule for a couple of near bus/tram stops
+- Public transport schedule for a couple of near bus/tram stops in Helsinki, Finland
   * Similar in style to the schedules you see on bus stops nowadays (https://omatnaytot.hsl.fi/createview).
 
 The UI is implemented with LVGL. Their SquareLine Studio software was used to design the UIs, and export the bare UI elements into code. Based on the [esp32-smartdisplay library](https://github.com/rzeldent/esp32-smartdisplay)'s LVGL configs.
