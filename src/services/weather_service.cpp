@@ -10,6 +10,8 @@
 #include "string_utils.hpp"
 #include "time_utils.hpp"
 
+#include "secrets.h"
+
 namespace Services
 {
   namespace WeatherService
@@ -71,7 +73,7 @@ namespace Services
 
       std::ostringstream of;
       of << "https://opendata.fmi.fi/timeseries"
-         << "?latlon=60.1554,24.9105"
+         << "?latlon=" << StringUtils::percentEncode(WEATHER_COORDINATES_LATLON)
          << "&param=epochtime,temperature,smartsymbol"
          << "&timestep=" << (3 * 60)
          << "&tz=Europe%2FHelsinki"
