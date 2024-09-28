@@ -74,9 +74,9 @@ namespace Services
       std::ostringstream of;
       of << "https://opendata.fmi.fi/timeseries"
          << "?latlon=" << StringUtils::percentEncode(WEATHER_COORDINATES_LATLON)
-         << "&param=epochtime,temperature,smartsymbol"
+         << "&param=" << StringUtils::percentEncode("epochtime,temperature,smartsymbol")
          << "&timestep=" << (3 * 60)
-         << "&tz=Europe%2FHelsinki"
+         << "&tz=" << StringUtils::percentEncode("Europe/Helsinki")
          << "&format=json"
          << "&starttime=" << StringUtils::percentEncode(TimeUtils::to_iso8601(&timeinfoStart))
          << "&endtime=" << StringUtils::percentEncode(TimeUtils::to_iso8601(&timeinfoEnd));
