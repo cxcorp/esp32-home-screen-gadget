@@ -33,7 +33,9 @@ Now that the OTA functionality is flashed, use OTA for following updates if you 
 
 ## Case
 
-https://www.printables.com/model/577921-p1touch-sunton-esp32-2432s028r-case-alien3d-deck-r
+Based on: https://www.printables.com/model/577921-p1touch-sunton-esp32-2432s028r-case-alien3d-deck-r
+
+3D files in [docs/enclosure](./docs/enclosure)
 
 ## Licenses
 
