@@ -8,6 +8,10 @@ Firmware for a ESP32-2432S032 2.8" TFT (resistive) touchscreen module to provide
 - Public transport schedule for a couple of near bus/tram stops in Helsinki, Finland
   * Similar in style to the schedules you see on bus stops nowadays (https://omatnaytot.hsl.fi/createview).
 
+The device has no interactive features other than waking up the display by tapping the screen.
+
+The device dims the backlight after a short period of inactivity. Then, after further inactivity, the display is put into sleep. The display can be awakened by tapping on it anywhere. While the display is asleep, the weather and transport schedules are updated only once an hour, which is good enough to keep the weather up to date.
+
 The UI is implemented with LVGL. SquareLine Studio software was used to design the UIs, and export the bare UI elements into code. Based on the [esp32-smartdisplay library](https://github.com/rzeldent/esp32-smartdisplay)'s LVGL configs.
 
 ## Images
