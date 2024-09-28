@@ -17,7 +17,7 @@ The UI is implemented with LVGL. SquareLine Studio software was used to design t
 |  ![](docs/ui.png)  |
 | |
 | **Mounted on the wall** |
-| ![](docs/on_the_wall.jpg) |
+| ![](docs/on_the_wall.png) |
 
 
 
