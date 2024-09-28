@@ -14,7 +14,7 @@ namespace Services
   {
     static const char *hsl_graphql_query =
         "{\n"
-        "  stops(ids: [\"HSL:1203402\", \"HSL:1203425\"]) {\n"
+        "  stops(ids: [\"" HSL_STOP_ID "\"]) {\n"
         "    gtfsId\n"
         "    stoptimesWithoutPatterns(\n"
         "      numberOfDepartures: 3,\n"

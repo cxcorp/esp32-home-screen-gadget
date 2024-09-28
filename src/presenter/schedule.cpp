@@ -7,6 +7,8 @@
 #include "time_utils.hpp"
 #include "services/hsl_service.hpp"
 
+#include "secrets.h"
+
 namespace Presenter
 {
   namespace Internal
@@ -41,13 +43,9 @@ namespace Presenter
 
     static long get_time_required_to_reach_the_stop(const std::string &stopGtfsId)
     {
-      if (stopGtfsId == "HSL:1203402")
+      if (stopGtfsId == HSL_STOP_ID)
       {
-        return 2 * TimeUtils::MIN_TO_S;
-      }
-      if (stopGtfsId == "HSL:1203425")
-      {
-        return 7 * TimeUtils::MIN_TO_S;
+        return HSL_MINUTES_TO_WALK_TO_STOP * TimeUtils::MIN_TO_S;
       }
       return 0;
     }
