@@ -97,25 +97,39 @@ namespace UiModel
     {
         if (this->fetchDebouncer.tryElapse())
         {
-            std::vector<Services::HslService::StopTime> stopTimes;
-            if (!Services::HslService::getSchedule(stopTimes))
-            {
-                reconnectWiFiIfDisconnected();
-            }
-
-            stopTimes.clear();
-
-            if (Services::HslService::getSchedule(stopTimes))
-            {
-                this->stopTimes = std::move(stopTimes);
-                this->setChanged(true);
-            }
+            this->fetchNewStopTimes();
         }
 
         if (this->screenUpdateDebouncer.tryElapse())
         {
             this->setChanged(true);
         }
+    }
+
+    void Schedule::fetchNewStopTimes()
+    {
+        Serial.println("[UiModel::Schedule::fetchNewStopTimes] Fetching schedule");
+
+        std::vector<Services::HslService::StopTime> stopTimes;
+
+        if (!Services::HslService::getSchedule(stopTimes))
+        {
+            Serial.println("[UiModel::Schedule::update] HslService::getSchedule failed, try reconnect WiFi");
+            reconnectWiFiIfDisconnected();
+
+            stopTimes.clear();
+
+            Serial.println("[UiModel::Schedule::update] Try get schedule after WiFi reconnect");
+
+            if (!Services::HslService::getSchedule(stopTimes))
+            {
+                Serial.println("[UiModel::Schedule::update] Schedule failed to update after WiFi reconnect, trying again later");
+                return;
+            }
+        }
+
+        this->stopTimes = std::move(stopTimes);
+        this->setChanged(true);
     }
 
     const std::vector<Services::HslService::StopTime> &Schedule::getStopTimes() const

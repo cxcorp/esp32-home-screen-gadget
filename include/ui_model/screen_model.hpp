@@ -52,6 +52,8 @@ namespace UiModel
         Util::Debouncer fetchDebouncer;
         Util::Debouncer screenUpdateDebouncer;
         std::vector<Services::HslService::StopTime> stopTimes;
+
+        void fetchNewStopTimes();
     };
 
     class Screen
