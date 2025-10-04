@@ -63,7 +63,7 @@ namespace Services
         "LXY2JtwE65/3YR8V3Idv7kaWKK2hJn0KCacuBKONvPi8BDAB\n"
         "-----END CERTIFICATE-----\n";
 
-    static ArduinoJson::DynamicJsonDocument hslJson(4096);
+    static ArduinoJson::JsonDocument hslJson;
 
     static bool fetchSchedule(JsonDocument &output)
     {
