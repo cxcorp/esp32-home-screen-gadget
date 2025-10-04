@@ -74,7 +74,7 @@ namespace Services
         HTTPClient https;
         https.useHTTP10(true);
 
-        const char *url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql";
+        const char *url = "https://api.digitransit.fi/routing/v2/hsl/gtfs/v1";
         Serial.printf("[HslService::fetchSchedule] fetching: \"%s\"\n", url);
         https.begin(wifiClient, url);
         https.addHeader("digitransit-subscription-key", DIGITRANSIT_SUBSCRIPTION_KEY);
