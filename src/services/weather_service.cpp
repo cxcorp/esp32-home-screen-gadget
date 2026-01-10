@@ -141,9 +141,9 @@ namespace Services
       for (JsonObject item : weatherJson.as<JsonArray>())
       {
         unsigned long epochtime = item["epochtime"];     // 1695448800, 1695459600, 1695470400, 1695481200, 1695492000, ...
-        unsigned long temperature = item["temperature"]; // 17, 17, 16, 16, 16, 15
+        long temperature = item["temperature"];          // 17, 17, 16, 16, 16, 15
         unsigned long smartsymbol = item["smartsymbol"]; // 6, 38, 37, 27, 104, 104
-        Serial.printf("%lu\t%lu\t%lu.png\n", epochtime, temperature, smartsymbol);
+        Serial.printf("%lu\t%ld\t%lu.png\n", epochtime, temperature, smartsymbol);
         output.emplace_back(
             WeatherForecast{
                 .timestamp = (time_t)epochtime,

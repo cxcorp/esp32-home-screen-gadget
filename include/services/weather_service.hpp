@@ -10,7 +10,7 @@ namespace Services
     struct WeatherForecast
     {
       const time_t timestamp;
-      const unsigned long temperatureCelsius;
+      const long temperatureCelsius;
       const unsigned long smartSymbolId;
     };
 
