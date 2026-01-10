@@ -58,7 +58,7 @@ namespace Services
         "LcPZew==\n"
         "-----END CERTIFICATE-----\n";
 
-    static ArduinoJson::DynamicJsonDocument weatherJson(2048);
+    static ArduinoJson::JsonDocument weatherJson;
 
     static std::string buildWeatherApiUrl()
     {
